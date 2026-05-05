@@ -74,16 +74,31 @@ The rest of the code I used to get the scores can be found in the SQL section of
 
 ### **Results and Observations:**
 
-- Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries. Below, you can see a scatterplot that uses the scores to calculate this along with some SQL code to show the top 10 scoring items. Here is the SQL code:
+Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries. I'll use scatterplots to show the output between claims/beneficiaries and average dosage price
 
-- And the Output + Scatterplot
+Scatterplots
 
+From this, it can be concluded that there isn't a very strong correlation between average price per dose and number of claims/beneficiaries. It's more of a case by case basis.
 
-- If a policy requires removal or tier adjustment of medications based on overall score, these would be the top 10 candidates:
+If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
 
 table and chart
 
-If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries, these would be the top 10 candidates.
+|Medication|Outlier_Flag|Score|
+|---|---|---|
+|Kymriah|1|0.95|
+|Digifab|0|0.93|
+|Oncaspar|0|0.93|
+|Yescarta|0|0.91|
+|Myown skin, includes harvesting and preparation procedures, per square centimeter|1|0.91|
+|Ethamolin|1|0.91|
+|Prograf (J7525)|0|0.89|
+|Nipent|0|0.88|
+|Tecartus|0|0.88|
+|Cytogam|0|0.87|
+
+
+If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
 
 table and chart
 

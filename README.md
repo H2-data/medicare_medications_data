@@ -90,7 +90,7 @@ table and chart
 |Digifab|0|0.93|
 |Oncaspar|0|0.93|
 |Yescarta|0|0.91|
-|Myown skin, includes harvesting and preparation procedures, per square centimeter|1|0.91|
+|Myown skin|1|0.91|
 |Ethamolin|1|0.91|
 |Prograf (J7525)|0|0.89|
 |Nipent|0|0.88|

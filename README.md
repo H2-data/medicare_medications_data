@@ -26,7 +26,7 @@ To interact with the dashboard or search for individual medication scores, see t
 
 ### **Data Preprocessing:**
 
-Aside from generic preprocessing (Outliers, Duplicates and Missing Values) I needed to alter the data structure itself. The data is in a wide format, meaning there is a column for each item for every individual year. Most of the cleaning required melting it into a long format. Below is the original data:
+Aside from generic preprocessing (outliers, duplicates and missing values) I needed to alter the data structure itself. The data is in a **wide format**, meaning each item has a column for every individual year. Most of the cleaning required melting it into a long format. Below is the original data:
 
 |HCPCS\_Cd|Brnd\_Name|Gnrc\_Name|Tot\_Clms\_2019|Tot\_Clms\_2020|Tot\_Clms\_2021|Tot\_Clms\_2022|Tot\_Clms\_2023|
 |---|---|---|---|---|---|---|---|
@@ -55,15 +55,13 @@ And this is the result:
 |90376\_2022|Imogam Rabies-HT|Rabies Immune Globulin/PF|2022|373\.0|
 |90376\_2023|Imogam Rabies-HT|Rabies Immune Globulin/PF|2023|207\.0|
 
-Now the rabies vaccine is dupilcated once for each year, and there is a year column to dilineate it. Now I can partition things by year instead of referencing a set of columns each time I need a calculation. This logic was applied to all date identified columns in the dataset, creating a much simpler structure for use in SQL and Power BI.
+Now the rabies vaccine is dupilcated once for each year, and there is a 'year' column to dilineate it. Now I can partition things by year instead of referencing a set of columns each time I need a calculation. This logic was applied to all date-identified columns in the dataset, creating a much simpler structure for use in SQL and Power BI.
 
-To see each step of the data cleaning process, see the Python section of this project, linked here:
-
-
+To see each step of the data cleaning process, see the preprocessing section of this project, linked here:
 
 ### **How can I solve the problem?**
 
-After trying a couple of different methods, I believe the most effective way to decide which medications are the most costly is using a Composite Score since there are multiple factors that determine whether a medication is a liability. I will use 5 factors to score a medication:
+After trying a couple of different methods, I believe the most effective way to decide which medications incur the most losses is using a Weighted Composite Score since there are multiple factors that determine whether a medication is a liability. I will use 5 factors to score a medication:
 
 - Average Spending (30%), the higher the price, the higher score
 - Total Beneficiaries (inverted) (25%), the lower the number of beneficiaries, the higher the score
@@ -71,24 +69,24 @@ After trying a couple of different methods, I believe the most effective way to 
 - 2022-2023 Spending Change (15%), the higher the growth, the higher the score
 - 2021-2022 Spending Change (5%), the higher the growth, the higher the score
 
-The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 1 to 100 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for later plotting.
+The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 1 to 100 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for each category for later plotting.
 
 
 
-The rest of the code I used to get the scores can be found in the SQL section of this project, linked here:
+The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:
 
 
 ### **Results and Observations:**
 
-Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries. I'll use scatterplots to show the output between claims/beneficiaries and average dosage price
+Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries/claims. I'll use color-coded scatterplots to show the output between claims/beneficiaries and average dosage price
 
-Scatterplots
+[INSERT SCATTERPLOTS HERE]
 
 From this, it can be concluded that there isn't a very strong correlation between average price per dose and number of claims/beneficiaries. It's more of a case by case basis.
 
-If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
+- If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
 
-table and chart
+[INSERT TABLE AND CHART HERE]
 
 |Medication|Outlier_Flag|Score|
 |---|---|---|
@@ -103,17 +101,18 @@ table and chart
 |Tecartus|0|0.88|
 |Cytogam|0|0.87|
 
+- If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
 
-If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
-
-table and chart
+[INSERT TABLE AND CHART HERE]
 
 The rest of the dashboard as well as the scores for all other medications can be found in the Power BI section of this project, linked here:
 
 ### **Analyst Recommendations:**
 
-- Before **removing** a medication, ensure that the medication has an alternative for whatever it is used to treat. For example, if you notice a drug meant to treat exzema has few beneficiaries and costs a lot to cover, ensure there are other drugs in the formulary that treat exzema before removing it. If there is no alternative, then it may be sufficient to move it up a tier instead.
+- The scoring system is simple: **The higher the score, the more liable the medication is for causing losses.** I showed the top 10 items for each data question in the previous section, but the dashboard list contains all medications and their respective attribute scores and final composite score. Should a policy need modification beyond the scope of the top 10, simply go down the list and see which medications are the most appropriate for removal. You can also manually search specific medications and years using the search bar at the top.
+  
+- Before **removing** a medication, ensure that it has an alternative for whatever it is used to treat. For example, if you notice a drug meant to treat exzema has few beneficiaries and costs a lot to cover, ensure there are other drugs in the formulary that treat exzema before removing it. If there is no alternative, then it may be sufficient to move it up a tier instead.
 
-- Before adjusting a medication, be sure to verify whether it is an outlier. Outliers are marked in yellow in on the dashboard. If a medication is an outlier for the specified year, look into that specific medication to verify whether it was only a liability for that year, or if it's been a liability for multiple years.
+- Before adjusting a medication, be sure to verify whether it is an outlier. **Outliers are marked in yellow in on the dashboard**. If a medication is an outlier for the specified year, look into that medication to verify whether it was only a liability for that year, or if it's been a liability for multiple years.
 
 - This dashboard list should be updated with fresh data annually. As long as the data schema is maintained, it can be sent through the pipeline found in each part of the project (Python -> SQL -> Power BI). It will score the medications and organize them by liability.

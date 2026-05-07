@@ -18,6 +18,12 @@ I will translate this business question into data questions:
 
 - Which medications have both a **high price** and a **high number of claims and beneficiaries**? It is unsafe to completely remove medications like these, but increasing their tier could reduce overall losses.
 
+### **Data Report:**
+
+[INSERT FULLL DASHBOARD HERE]
+
+To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:
+
 ### **Data Preprocessing:**
 
 Aside from generic preprocessing (Outliers, Duplicates and Missing Values) I needed to alter the data structure itself. The data is in a wide format, meaning there is a column for each item for every individual year. Most of the cleaning required melting it into a long format. Below is the original data:

@@ -55,7 +55,7 @@ To see each step of the data cleaning process, see the Python section of this pr
 
 
 
-### **How can I solve the problem?
+### **How can I solve the problem?**
 
 After trying a couple of different methods, I believe the most effective way to decide which medications are the most costly is using a Composite Score since there are multiple factors that determine whether a medication is a liability. I will use 5 factors to score a medication:
 

@@ -20,7 +20,7 @@ I will translate this business question into data questions:
 
 ### **Data Report:**
 
-[INSERT FULL DASHBOARD HERE]
+<img width="1193" height="667" alt="image" src="https://github.com/user-attachments/assets/a705c76a-69f1-41f2-88b9-b14cc4274d3f" />
 
 To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:
 
@@ -85,13 +85,13 @@ Before we continue, I want to see if there is a relationship between average dos
 From this, it can be concluded that there isn't a very strong correlation between average price per dose and number of claims/beneficiaries. It's more of a case by case basis.
 
 - If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
-
-[INSERT TABLE AND CHART HERE]
+  
+<img width="1176" height="258" alt="image" src="https://github.com/user-attachments/assets/ebbb16bf-5b69-4bd8-84d8-0ec1cb7bff63" />
 
 - If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
 
-[INSERT TABLE AND CHART HERE]
-
+<img width="1172" height="276" alt="image" src="https://github.com/user-attachments/assets/3fd6f8d3-624b-4afa-bd60-828e7659064a" />
+<br>
 The rest of the dashboard as well as the scores for all other medications can be found in the Power BI section of this project, linked here:
 
 ### **Analyst Recommendations:**

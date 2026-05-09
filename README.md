@@ -20,8 +20,8 @@ I will translate this business question into data questions:
 
 ### **Data Report:**
 
-<img width="1193" height="667" alt="image" src="https://github.com/user-attachments/assets/a705c76a-69f1-41f2-88b9-b14cc4274d3f" />
-
+<img width="1193" height="668" alt="image" src="https://github.com/user-attachments/assets/b2ba68b0-42a2-4f25-b88e-8d3d6dec5553" />
+<br>
 To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:
 
 ### **Data Preprocessing:**
@@ -71,8 +71,18 @@ After trying a couple of different methods, I believe the most effective way to 
 
 The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 1 to 100 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for each category for later plotting.
 
-[INSERT OUTPUT HERE]
-
+```SQL
+SELECT
+	Brnd_Name as Medication,
+	Outlier_Flag as Outlier_Flag,
+    ROUND(composite_score, 2) as Score
+FROM final_scores
+WHERE YEAR = 2023
+ORDER BY composite_score DESC
+LIMIT 5;
+```
+<img width="492" height="132" alt="image" src="https://github.com/user-attachments/assets/48770bac-28a1-43d4-bfaf-67aaddf4a462" />
+<br>
 The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:
 
 
@@ -80,13 +90,16 @@ The rest of the code I used to get these scores can be found in the SQL section 
 
 Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries/claims. I'll use color-coded scatterplots to show the output between claims/beneficiaries and average dosage price
 
-[INSERT SCATTERPLOTS HERE]
+<img width="1078" height="326" alt="image" src="https://github.com/user-attachments/assets/56e0dcfe-2ecb-48c9-85c6-95db9475aff2" />
+<br>
+From this, it can be concluded that there isn't a very strong correlation between average price per dose and number of claims/beneficiaries. It's more of a case by case basis. There is a near linear correlation between claims and beneficiaries which is obvious, I wanted to check to confirm whether I could use them interchangeably.
 
-From this, it can be concluded that there isn't a very strong correlation between average price per dose and number of claims/beneficiaries. It's more of a case by case basis.
+&nbsp;
 
 - If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
   
 <img width="1176" height="258" alt="image" src="https://github.com/user-attachments/assets/ebbb16bf-5b69-4bd8-84d8-0ec1cb7bff63" />
+<br>
 
 - If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
 

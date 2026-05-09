@@ -20,7 +20,7 @@ I will translate this business question into data questions:
 
 ### **Data Report:**
 
-[INSERT FULLL DASHBOARD HERE]
+[INSERT FULL DASHBOARD HERE]
 
 To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:
 
@@ -71,7 +71,7 @@ After trying a couple of different methods, I believe the most effective way to 
 
 The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 1 to 100 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for each category for later plotting.
 
-
+[INSERT OUTPUT HERE]
 
 The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:
 
@@ -87,19 +87,6 @@ From this, it can be concluded that there isn't a very strong correlation betwee
 - If a policy requires removal or tier adjustment of medications based on overall score for the most recent year in the data (2023), these would be the top 10 candidates:
 
 [INSERT TABLE AND CHART HERE]
-
-|Medication|Outlier_Flag|Score|
-|---|---|---|
-|Kymriah|1|0.95|
-|Digifab|0|0.93|
-|Oncaspar|0|0.93|
-|Yescarta|0|0.91|
-|Myown skin|1|0.91|
-|Ethamolin|1|0.91|
-|Prograf (J7525)|0|0.89|
-|Nipent|0|0.88|
-|Tecartus|0|0.88|
-|Cytogam|0|0.87|
 
 - If a policy requires tier adjustment of medications due to high dosage prices AND high number of beneficiaries for the most recent year in the data (2023), these would be the top 10 candidates.
 

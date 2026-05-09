@@ -69,7 +69,7 @@ After trying a couple of different methods, I believe the most effective way to 
 - 2022-2023 Spending Change (15%), the higher the growth, the higher the score
 - 2021-2022 Spending Change (5%), the higher the growth, the higher the score
 
-The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 1 to 100 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for each category for later plotting.
+The following is a snippet of the resulting output. To keep things clean, I used Percent Rank as the standardization method, meaning each medication is ranked a number from 0 to 1 depending on it's overall score. The higher the score, the more likely the medication is a liability. I also kept the original scores for each category for later plotting.
 
 ```SQL
 SELECT
@@ -88,7 +88,7 @@ The rest of the code I used to get these scores can be found in the SQL section 
 
 ### **Results and Observations:**
 
-Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries/claims. I'll use color-coded scatterplots to show the output between claims/beneficiaries and average dosage price
+Before we continue, I want to see if there is a relationship between average dosage cost and beneficiaries/claims. I'll use scatterplots to show the output between claims/beneficiaries and average dosage price.
 
 <img width="1078" height="326" alt="image" src="https://github.com/user-attachments/assets/56e0dcfe-2ecb-48c9-85c6-95db9475aff2" />
 <br>
@@ -113,6 +113,6 @@ The rest of the dashboard as well as the scores for all other medications can be
   
 - Before **removing** a medication, ensure that it has an alternative for whatever it is used to treat. For example, if you notice a drug meant to treat exzema has few beneficiaries and costs a lot to cover, ensure there are other drugs in the formulary that treat exzema before removing it. If there is no alternative, then it may be sufficient to move it up a tier instead.
 
-- Before adjusting a medication, be sure to verify whether it is an outlier. **Outliers are marked in yellow in on the dashboard**. If a medication is an outlier for the specified year, look into that medication to verify whether it was only a liability for that year, or if it's been a liability for multiple years.
+- Before adjusting a medication, be sure to verify whether it is an outlier. **Outliers are marked in yellow on the dashboard**. If a medication is an outlier for the specified year, look into that medication to verify whether it was only a liability for that year, or if it's been a liability for multiple years.
 
 - This dashboard list should be updated with fresh data annually. As long as the data schema is maintained, it can be sent through the pipeline found in each part of the project (Python -> SQL -> Power BI). It will score the medications and organize them by liability.

@@ -89,8 +89,8 @@ The rest of the code I used to get these scores can be found in the SQL section 
 
 [SQL_Imports](02_Importing.sql)  
 [SQL_Nulls](03_Nulls.sql)  
-[SQL_Growth](04_Growth Calculation.sql)  
-[SQL_Scoring])04_Growth Calculation.sql)
+[SQL_Growth](04_Growth%20Calculation.sql)  
+[SQL_Scoring](05_Scoring.sql)  
 
 ### **Results and Observations:**
 

@@ -30,9 +30,9 @@ To interact with the dashboard or search for individual medication scores, see t
 
 Aside from generic preprocessing (outliers, duplicates and missing values) I needed to alter the data structure itself. The data is in a **wide format**, meaning each item has a column for every individual year. Most of the cleaning required melting it into a long format. Below is the original data:
 
-|HCPCS\_Cd|Brnd\_Name|Gnrc\_Name|Tot\_Clms\_2019|Tot\_Clms\_2020|Tot\_Clms\_2021|Tot\_Clms\_2022|Tot\_Clms\_2023|
-|---|---|---|---|---|---|---|---|
-|90376|Imogam Rabies-HT|Rabies Immune Globulin/PF|498\.0|348\.0|333\.0|373\.0|207|
+|Brnd\_Name|Gnrc\_Name|Tot\_Clms\_2019|Tot\_Clms\_2020|Tot\_Clms\_2021|Tot\_Clms\_2022|Tot\_Clms\_2023|
+|---|---|---|---|---|---|---|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|498\.0|348\.0|333\.0|373\.0|207|
 
 The problem is the rabies vaccine has a seperate 'total claims' column for every year. This wide structure makes the data difficult to to work with. To fix this, I used the following code snippet on each individual item to melt them down, and then I rejoined them into one table.
 
@@ -49,13 +49,13 @@ df_tot_spndng.head()
 ```
 And this is the result:
 
-|HCPCS\_Cd|Brnd\_Name|Gnrc\_Name|year|Tot\_Clms|
-|---|---|---|---|---|
-|90376\_2019|Imogam Rabies-HT|Rabies Immune Globulin/PF|2019|498\.0|
-|90376\_2020|Imogam Rabies-HT|Rabies Immune Globulin/PF|2020|348\.0|
-|90376\_2021|Imogam Rabies-HT|Rabies Immune Globulin/PF|2021|333\.0|
-|90376\_2022|Imogam Rabies-HT|Rabies Immune Globulin/PF|2022|373\.0|
-|90376\_2023|Imogam Rabies-HT|Rabies Immune Globulin/PF|2023|207\.0|
+|Brnd\_Name|Gnrc\_Name|year|Tot\_Clms|
+|---|---|---|---|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|2019|498\.0|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|2020|348\.0|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|2021|333\.0|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|2022|373\.0|
+|Imogam Rabies-HT|Rabies Immune Globulin/PF|2023|207\.0|
 
 Now the rabies vaccine is dupilcated once for each year, and there is a 'year' column to dilineate it. Now I can partition things by year instead of referencing a set of columns each time I need a calculation. This logic was applied to all date-identified columns in the dataset, creating a much simpler structure for use in SQL and Power BI.
 

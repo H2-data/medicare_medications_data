@@ -85,7 +85,9 @@ LIMIT 5;
 ```
 <img width="492" height="132" alt="image" src="https://github.com/user-attachments/assets/48770bac-28a1-43d4-bfaf-67aaddf4a462" />
 <br>
-The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:
+The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:  
+<br>
+<br>
 
 [SQL_Imports](02_Importing.sql)  
 [SQL_Nulls](03_Nulls.sql)  

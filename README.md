@@ -59,6 +59,8 @@ Now the rabies vaccine is dupilcated once for each year, and there is a 'year' c
 
 To see each step of the data cleaning process, see the preprocessing section of this project, linked here:
 
+[Preprocessing](01_medicare_medication.py)
+
 ### **How can I solve the problem?**
 
 After trying a couple of different methods, I believe the most effective way to decide which medications incur the most losses is using a Weighted Composite Score since there are multiple factors that determine whether a medication is a liability. I will use 5 factors to score a medication:
@@ -85,6 +87,10 @@ LIMIT 5;
 <br>
 The rest of the code I used to get these scores can be found in the SQL section of this project, linked here:
 
+[SQL_Imports](02_Importing.sql)  
+[SQL_Nulls](03_Nulls.sql)  
+[SQL_Growth](04_Growth Calculation.sql)  
+[SQL_Scoring])04_Growth Calculation.sql)
 
 ### **Results and Observations:**
 

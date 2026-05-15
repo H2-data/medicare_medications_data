@@ -6,6 +6,8 @@
 
 ---
 
+Files are labelled from 01-05. They can be read in numeric order. The dashbord is screenshotted and linked below, and it is the last step in the process.
+
 ### **Scenario and Objective:**
 
 Alpha Green Insurance LLC (Not a real company) wants to make changes to their formulary for select Medicare Advantage policies and supplements in 2024. They have asked me to look over the formulary data for the previous years to get a feel for the territory, and create a list of medications that can be reliably removed from a formulary. My goal is to answer the following business question:

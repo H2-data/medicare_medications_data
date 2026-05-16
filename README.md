@@ -24,7 +24,11 @@ I will translate this business question into data questions:
 
 <img width="1193" height="668" alt="image" src="https://github.com/user-attachments/assets/b2ba68b0-42a2-4f25-b88e-8d3d6dec5553" />
 <br>
-To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:
+To interact with the dashboard or search for individual medication scores, see the Power BI section of the project, linked here:  
+<br>
+<br>
+
+[Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZmYyYzJiNDctOTI1Ny00NDRiLWE5OTItODI5NDc0M2U1ZjE0IiwidCI6ImRmZWM4YzJjLThlNWUtNDI4Yy05MmE4LTkzOTI1ZjM3Y2JlYiJ9)
 
 ### **Data Preprocessing:**
 
@@ -117,6 +121,10 @@ From this, it can be concluded that there isn't a very strong correlation betwee
 <img width="1172" height="276" alt="image" src="https://github.com/user-attachments/assets/3fd6f8d3-624b-4afa-bd60-828e7659064a" />
 <br>
 The rest of the dashboard as well as the scores for all other medications can be found in the Power BI section of this project, linked here:
+<br>
+<br>
+
+[Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZmYyYzJiNDctOTI1Ny00NDRiLWE5OTItODI5NDc0M2U1ZjE0IiwidCI6ImRmZWM4YzJjLThlNWUtNDI4Yy05MmE4LTkzOTI1ZjM3Y2JlYiJ9)
 
 ### **Analyst Recommendations:**
 

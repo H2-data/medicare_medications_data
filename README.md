@@ -6,7 +6,11 @@
 
 ---
 
-Files are labelled from 01-05. They can be read in numeric order. The dashbord is screenshotted and linked below, and it is the last step in the process.
+### **Important Notes:**
+
+- The data used in this project is a public dataset, it is not confidential data.
+
+- Files are labelled from 01-05. They can be read in numeric order. The dashboard is screenshotted and linked below, and it is the last step in the process.
 
 ### **Scenario and Objective:**
 
